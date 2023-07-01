@@ -10,4 +10,6 @@ user_input = gets.chomp.downcase
 
 response = HTTP.get("https://api.jikan.moe/v4/anime?q=#{user_input}&sfw")
 
-pp response.parse(:json)
+title = response.parse(:json)["data"][0]["title"]
+
+synopsis = response.parse(:json)["data"][0]["synopsis"]
